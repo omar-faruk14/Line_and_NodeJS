@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Bot</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Welcome to My Bot</h1>
+  <p>Please select an option:</p>
+  <button onclick="sendMessage('Option 1')">Option 1</button>
+  <button onclick="sendMessage('Option 2')">Option 2</button>
+  <button onclick="sendMessage('Option 3')">Option 3</button>
+
+  <script>
+    function sendMessage(option) {
+      // Send an HTTP POST request to your bot backend when the user clicks a button
+      fetch('/sendMessage', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ option })
+      });
+    }
+  </script>
+</body>
+</html>
